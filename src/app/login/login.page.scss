@@ -1,0 +1,25 @@
+ion-content {
+    --background: url(../../assets/imgs/background.png) 100% no-repeat;
+}
+
+ion-list {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+ion-label, ion-input {
+    color: white;
+}
+
+#titulo {
+    font-size: 40px;
+    margin-top: 100px;
+    color: white;
+    text-align: center;
+}
+
+#cadastrar-se {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: underline;
+}
