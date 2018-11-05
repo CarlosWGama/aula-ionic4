@@ -5,18 +5,18 @@
       <!-- EMAIL -->
       <ion-item>
         <ion-label position="floating">Email</ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="usuario.email" ></ion-input>
       </ion-item>
 
       <!-- SENHA -->
       <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password"  [(ngModel)]="usuario.senha"></ion-input>
       </ion-item>
     </ion-list>
 
-    <ion-button expand="block" shape="round" color="light"> Logar </ion-button>
-    
+    <ion-button expand="block" shape="round" color="light" (click)="logar()"> LOGAR </ion-button>
+    <p class="msg">{{ msg }}</p>
     <p id="cadastrar-se">
       Não possui conta? Clique aqui para cadastrar-se.
     </p>
