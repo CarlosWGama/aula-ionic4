@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { AutenticacaoGuard } from '../guards/autenticacao.guard';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +14,10 @@ export class LoginPage implements OnInit {
   msg = "";
   formulario: FormGroup
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
+    
     this.formulario = this.formBuilder.group({
       email: ['valor padrão inicial', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(6)]]
@@ -21,10 +25,12 @@ export class LoginPage implements OnInit {
   }
 
   logar() {
+
     let usuario = this.formulario.value;
-    if (this.formulario.valid && usuario.email == "teste@teste.com" && usuario.senha == "123456")
-      this.msg = "SUCESSO";
-    else
+    if (this.formulario.valid && usuario.email == "teste@teste.com" && usuario.senha == "123456") {
+      AutenticacaoGuard.podeAcessar = true;      
+      this.router.navigateByUrl('/home');
+    } else
       this.msg = "EMAIL OU SENHA ERRADA"
   }
 }
