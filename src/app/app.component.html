@@ -1,3 +1,30 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-split-pane>
+  <ion-menu side="start" type="overlay">
+    <!-- TITULO DO MENU -->
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>MENU</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <!-- ITENS DO MENU -->
+    <ion-content>
+      <!-- TAG PARA FECHAR O MENU AO SER CLICADO -->
+      <ion-menu-toggle>
+        <!-- ITENS DO MENU -->
+        <ion-list>
+
+          <ion-item button [routerLink]="p.url" *ngFor="let p of paginas">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon> {{ p.nome }}
+          </ion-item>
+
+        
+          <ion-item button (click)="sair()">
+            <ion-icon slot="start" name="exit"></ion-icon> Sair
+          </ion-item>
+    
+        </ion-list>
+      </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-split-pane>
