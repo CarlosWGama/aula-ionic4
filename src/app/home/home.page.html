@@ -13,6 +13,7 @@
 
 <ion-content>
   
+  <app-compartilhado></app-compartilhado>
   <h3 *ngIf="tarefas.length == 0" text-center>Você ainda não possui nenhuma tarefa cadastrada</h3>
 
   <ion-list>
@@ -20,6 +21,7 @@
       <!-- INFORMAÇÕES -->
       <ion-item>
         <ion-label>{{ tarefa.descricao }}</ion-label>
+        <app-prazo [prazo]="tarefa.data"></app-prazo>
         <p>{{ tarefa.data }}</p>
       </ion-item>
 

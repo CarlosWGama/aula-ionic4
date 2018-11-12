@@ -11,8 +11,9 @@ import { MenuController } from '@ionic/angular';
 export class HomePage implements OnInit {
 
   tarefas: Tarefa[] = [
-    new Tarefa(1, 'Descrição 1', '2020-01-01'),
-    new Tarefa(2, 'Descrição 2', '2025-01-01')
+    new Tarefa(1, 'Descrição 1', '2018-01-01'),
+    new Tarefa(2, 'Descrição 2', '2020-01-01'),
+    new Tarefa(3, 'Descrição 2', '2025-01-01')
   ];
   constructor(private menuCtrl:MenuController) { }
 
