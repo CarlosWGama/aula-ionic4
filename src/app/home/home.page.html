@@ -13,16 +13,15 @@
 
 <ion-content>
   
-  <app-compartilhado></app-compartilhado>
   <h3 *ngIf="tarefas.length == 0" text-center>Você ainda não possui nenhuma tarefa cadastrada</h3>
 
   <ion-list>
     <ion-item-sliding *ngFor="let tarefa of tarefas">
       <!-- INFORMAÇÕES -->
-      <ion-item>
+      <ion-item [appPrazoBackground]="tarefa.data">
         <ion-label>{{ tarefa.descricao }}</ion-label>
         <app-prazo [prazo]="tarefa.data"></app-prazo>
-        <p>{{ tarefa.data }}</p>
+        <p>{{ tarefa.data | dataBrasil }}</p>
       </ion-item>
 
       <!-- OPÇÕES -->
