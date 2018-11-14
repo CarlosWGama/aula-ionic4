@@ -10,11 +10,9 @@ export class PrazoBackgroundDirective implements OnInit {
 
   ngOnInit() {
     let hoje = new Date().toISOString().split('T')[0];
+    //Fundo vermelho
     if (hoje > this.prazo) {
-      //Fundo vermelho
-      this.render.setElementStyle(this.element.nativeElement, 'background-color', '#8B0000');
-      //Cor do texto branca
-      this.render.setElementStyle(this.element.nativeElement, 'color', 'white');
+      this.render.setElementProperty(this.element.nativeElement, 'color', 'danger');
     }
   }
 
