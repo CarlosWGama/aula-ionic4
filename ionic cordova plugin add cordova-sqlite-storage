@@ -1,0 +1,71 @@
+[33mcommit 85ae8ec92d006e0fcc6e87dfb7db049b460932e1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;33mtag: tabs[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Wed Nov 14 15:38:33 2018 -0200
+
+    Tabs
+
+[33mcommit 3e298c6aa2fc075b2389faeac6b63b6c8d0b3a91[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Wed Nov 14 14:26:40 2018 -0200
+
+    Ajuste beta 15
+
+[33mcommit 18e652720d6fa083572a10e1e4650650b05e5795[m[33m ([m[1;33mtag: pipes_directive[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Tue Nov 13 15:05:46 2018 -0200
+
+    Pipes e Directives
+
+[33mcommit 67c0b7cbf21fbf70c4416eea8f273a528db72f11[m[33m ([m[1;33mtag: component[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Mon Nov 12 13:27:42 2018 -0200
+
+    Components
+
+[33mcommit f410b51eccfd85279f27f969688b3cfa8b389cb7[m[33m ([m[1;33mtag: alert[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Thu Nov 8 15:32:51 2018 -0200
+
+    Toast, Loading e Alert
+
+[33mcommit 6c28cfdddc1bae1d64f22bbf38bfc7bd1dce8e1d[m[33m ([m[1;33mtag: menu[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Thu Nov 8 12:25:06 2018 -0200
+
+    Menu
+
+[33mcommit e43c25ae9203a685603ecf02f3f27c2c1b46cdb3[m[33m ([m[1;33mtag: navegacao[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Tue Nov 6 15:40:24 2018 -0200
+
+    Rotas
+
+[33mcommit fef7c4dea927b8956237da47282f03c2f4bd546d[m[33m ([m[1;33mtag: formbuilder[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Tue Nov 6 13:40:03 2018 -0200
+
+    Formulario
+
+[33mcommit 100d22195ab1bd40b9bef4372a836c156f46c172[m[33m ([m[1;33mtag: iteracao[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Mon Nov 5 15:36:25 2018 -0200
+
+    Iteração com o Layout
+
+[33mcommit e5b8e656680778834d475096ea2b2d29281f3e9f[m[33m ([m[1;33mtag: layout[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Mon Nov 5 13:41:03 2018 -0200
+
+    Layout
+
+[33mcommit 4d92dde2030ef6489c3a2ec5f1e754f328168e3b[m[33m ([m[1;33mtag: inicio[m[33m)[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Mon Nov 5 11:49:13 2018 -0200
+
+    Inicio
+
+[33mcommit be0d2451414b614a5b77671e0dfaaf3100b14931[m
+Author: Carlos W. Gama <carloswgama@gmail.com>
+Date:   Tue Oct 23 16:00:17 2018 -0300
+
+    Initial commit

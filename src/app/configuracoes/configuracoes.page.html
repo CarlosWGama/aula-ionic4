@@ -5,7 +5,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     
-    <ion-title>Configurações</ion-title>
+    <ion-title>{{ 'SETTINGS' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -27,12 +27,12 @@
     <ion-tab-bar slot="top"> 
       <ion-tab-button tab="geral" href="/configuracoes/(geral:geral)">
         <ion-icon name="home"></ion-icon>
-        <ion-label>Geral</ion-label>
+        <ion-label>{{ 'GENERAL' | translate }}</ion-label>
       </ion-tab-button>
 
       <ion-tab-button tab="info" href="/configuracoes/(info:info)">
           <ion-icon name="settings"></ion-icon>
-          <ion-label>Informações</ion-label>
+          <ion-label>{{ 'INFO' | translate }}</ion-label>
         </ion-tab-button>
 
     </ion-tab-bar>

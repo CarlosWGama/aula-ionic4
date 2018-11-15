@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-geral',
@@ -13,13 +15,16 @@ export class GeralComponent implements OnInit {
     { idioma: "English", sigla: 'en' }
   ]
 
-  constructor() { }
+  constructor(private translate: TranslateService, private storage: Storage) { }
 
+    
   ngOnInit() {
+    console.log(this.translate.instant('SETTINGS'));
   }
 
   salvar() {
-    console.log(this.idioma);
+    this.translate.use(this.idioma);
+    this.storage.set("idioma", this.idioma);
   }
 
 }

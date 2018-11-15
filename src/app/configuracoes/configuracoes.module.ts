@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { ConfiguracoesPage } from './configuracoes.page';
 import { GeralComponent } from './geral/geral.component';
 import { InfoComponent } from './info/info.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { IonicStorageModule } from '@ionic/storage';
 
 const routes: Routes = [
   {
@@ -26,7 +28,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule.forChild()
   ],
   declarations: [ConfiguracoesPage, GeralComponent, InfoComponent]
 })
