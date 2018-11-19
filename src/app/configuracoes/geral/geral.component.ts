@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-geral',
@@ -15,7 +16,7 @@ export class GeralComponent implements OnInit {
     { idioma: "English", sigla: 'en' }
   ]
 
-  constructor(private translate: TranslateService, private storage: Storage) { }
+  constructor(private translate: TranslateService, private storage: Storage, private router:Router) { }
 
     
   ngOnInit() {
@@ -25,6 +26,7 @@ export class GeralComponent implements OnInit {
   salvar() {
     this.translate.use(this.idioma);
     this.storage.set("idioma", this.idioma);
+    //window.location.reload();
   }
 
 }
