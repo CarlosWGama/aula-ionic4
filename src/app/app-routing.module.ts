@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'home', canActivate:[AutenticacaoGuard],  loadChildren: './home/home.module#HomePageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: '', loadChildren: './configuracoes/configuracoes.module#ConfiguracoesPageModule' },
+  { path: 'tarefa-edicao/:id', loadChildren: './tarefa-edicao/tarefa-edicao.module#TarefaEdicaoPageModule' },
+  { path: 'nova-tarefa', loadChildren: './tarefa-edicao/tarefa-edicao.module#TarefaEdicaoPageModule' },
 ];
 
 @NgModule({
