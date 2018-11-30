@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
-import { NavController, MenuController, ToastController, LoadingController, ActionSheetController, AlertController } from '@ionic/angular';
-import { AutenticacaoGuard } from '../guards/autenticacao.guard';
+import { Router } from '@angular/router';
+import { MenuController, ToastController, LoadingController, AlertController } from '@ionic/angular';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,6 @@ export class LoginPage implements OnInit {
     public alertController: AlertController) { }
 
   ngOnInit() {
-    
     this.menuCtrl.enable(false);
 
     this.formulario = this.formBuilder.group({
@@ -40,11 +39,21 @@ export class LoginPage implements OnInit {
         { text: 'Cadastrar', handler: (data) => { 
             console.log('Campo login: ' + data.login);
             console.log('Campo senha: ' + data.senha);
+
+            firebase.auth().createUserWithEmailAndPassword(data.login, data.senha).then(usuarioLogado => {
+              //Logado
+              this.toastController.create({
+                message: "Criado com sucesso", 
+                duration: 2000
+              }).then(toast => toast.present());
+
+              this.router.navigateByUrl('/home');
+
+            }).catch(erro => {
+              this.mensagemErro(erro.code);
+              console.log(erro);
+            })
             
-            this.toastController.create({
-              message: "Criado com sucesso", 
-              duration: 2000
-            }).then(toast => toast.present());
           }
         }
       ]
@@ -52,21 +61,50 @@ export class LoginPage implements OnInit {
     alert.present();
   }
 
+  /**
+   * Possíveis mensagens de erro do Firebase
+   * @param erroCode 
+   * 
+   */
+  private mensagemErro(erroCode) {
+    let msg = '';
+    //Seleeciona o tipo de erro
+    switch(erroCode) {
+      case "auth/user-not-found": msg = "Usuário não cadastrado"; break;
+      case "auth/wrong-password": msg = "Senha incorreta"; break;
+      case "auth/email-already-in-use": msg = "Email já cadastrado"; break;
+      case "auth/invalid-email": msg = "Campo e-mail não é válido"; break;
+      case "auth/weak-password": msg = "O campo senha precisa ter pelo menos 6 caracteres"; break;
+      default: msg = "Não foi possível completar a ação"; break;
+    }
+
+    this.toastController.create({
+      message: msg, 
+      duration: 2000
+    }).then(toast => toast.present());
+
+
+  }
+
   async logar() {
     const loading = await this.loadingController.create({
       message: 'Carregando',
       showBackdrop: false
     });
-    loading.present();
-    let usuario = this.formulario.value;
-    if (this.formulario.valid && usuario.email == "teste@teste.com" && usuario.senha == "123456") {
-      AutenticacaoGuard.podeAcessar = true;      
-      this.router.navigateByUrl('/home');
-    } else
-      this.toastController.create({
-        message: 'Login ou senha inválida',
-        duration: 2000 
-      }).then(toast => toast.present());
-    loading.dismiss();
+
+    if (this.formulario.valid) {
+      loading.present();
+      let usuario = this.formulario.value;
+    
+      firebase.auth().signInWithEmailAndPassword(usuario.email, usuario.senha).then(usuarioLogado => {
+        //logado
+        this.router.navigateByUrl('/home');
+        loading.dismiss();
+      }).catch(erro => {  
+        //Erro
+        this.mensagemErro(erro.code);
+        loading.dismiss();
+      });
+    }
   }
 }
