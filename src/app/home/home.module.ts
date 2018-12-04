@@ -9,6 +9,7 @@ import { PrazoComponent } from './prazo/prazo.component';
 import { ComponentsModule } from '../components/components.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { PrazoBackgroundDirective } from './prazo-background.directive';
+import { ServicesModule } from '../services/services.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { PrazoBackgroundDirective } from './prazo-background.directive';
     IonicModule,
     ComponentsModule,
     PipesModule,
+    ServicesModule,
     RouterModule.forChild([{path: '', component: HomePage}])
   ],
   declarations: [HomePage, PrazoComponent, PrazoBackgroundDirective]

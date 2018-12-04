@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, AfterViewInit, OnChanges, AfterViewChecked, AfterContentChecked } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tarefa } from '../models/tarefa';
-import { MenuController } from '@ionic/angular';
+import { MenuController, ToastController } from '@ionic/angular';
+import { TarefasService } from '../services/tarefas.service';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +11,23 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  tarefas: Tarefa[] = [
-    new Tarefa(1, 'Descrição 1', '2018-01-01'),
-    new Tarefa(2, 'Descrição 2', '2020-01-01'),
-    new Tarefa(3, 'Descrição 2', '2025-01-01')
-  ];
-  constructor(private menuCtrl:MenuController) { }
+  tarefas: Tarefa[] = [];
+  constructor(private menuCtrl:MenuController, private tarefasService: TarefasService, public toastController: ToastController ) { }
 
   ngOnInit() {
+    this.tarefasService.buscarTodos().then(tarefas => {
+      this.tarefas = tarefas
+      console.log(this.tarefas);
+    });
     this.menuCtrl.enable(true);
+  }
+
+  excluir(tarefa:Tarefa) {
+    this.tarefasService.excluir(tarefa.id);
+    this.ngOnInit();
+    this.toastController.create({
+      message: "Tarefa: '" + tarefa.descricao + "' excluida",
+      duration: 3000
+    }).then(toast => toast.present());
   }
 }

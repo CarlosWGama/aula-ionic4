@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-prazo',
@@ -16,6 +16,14 @@ export class PrazoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    let db = firebase.database();
+    let userID = firebase.auth().currentUser.uid;
+    let msgID = db.ref('mensagens').child(userID).push().key;
+    //Informa o ID do usuário e ass mensagens que pertencem a ele com seu próprio ID
+    db.ref('mensagens').child(userID).child(msgID).set({msg:'Mensagem 2'});
+   
+
     //Recupera apenas YYYY-MM-DD atual
     let hoje = new Date().toISOString().split('T')[0]; 
     if (this.prazo > hoje) this.status = -1; //Em dia

@@ -19,6 +19,7 @@ export class LoginPage implements OnInit {
     public alertController: AlertController) { }
 
   ngOnInit() {
+
     this.menuCtrl.enable(false);
 
     this.formulario = this.formBuilder.group({
