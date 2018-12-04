@@ -83,6 +83,9 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
-    <engine name="android" spec="7.1.2" />
     <plugin name="cordova-sqlite-storage" spec="2.5.1" />
+    <plugin name="cordova-plugin-admob-free" spec="0.23.0">
+        <variable name="ADMOB_APP_ID" value="ca-app-pub-8890411738087560~2002583322" />
+    </plugin>
+    <engine name="android" spec="7.1.2" />
 </widget>
