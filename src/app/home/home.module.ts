@@ -11,6 +11,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { PrazoBackgroundDirective } from './prazo-background.directive';
 import { ServicesModule } from '../services/services.module';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
+import { FCM } from '@ionic-native/fcm/ngx';
 
 @NgModule({
   imports: [
@@ -23,6 +24,6 @@ import { AdMobFree } from '@ionic-native/admob-free/ngx';
     RouterModule.forChild([{path: '', component: HomePage}])
   ],
   declarations: [HomePage, PrazoComponent, PrazoBackgroundDirective],
-  providers: [AdMobFree]
+  providers: [AdMobFree, FCM]
 })
 export class HomePageModule {}

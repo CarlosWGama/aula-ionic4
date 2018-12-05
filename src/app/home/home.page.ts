@@ -4,7 +4,8 @@ import { Tarefa } from '../models/tarefa';
 import { MenuController, ToastController } from '@ionic/angular';
 import { TarefasService } from '../services/tarefas.service';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
-
+import { FCM } from '@ionic-native/fcm/ngx';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,19 @@ import { AdMobFree } from '@ionic-native/admob-free/ngx';
 export class HomePage implements OnInit {
 
   tarefas: Tarefa[] = [];
-  constructor(private menuCtrl:MenuController, private tarefasService: TarefasService, public toastController: ToastController, private admobFree: AdMobFree ) { }
+  constructor(private menuCtrl:MenuController, private tarefasService: TarefasService, public toastController: ToastController, private admobFree: AdMobFree, private fcm: FCM ) { }
 
   ngOnInit() {
 
+    this.fcm.subscribeToTopic('aula'); //Cadastra para receber mensagens do tópico aula
+
+    //Salva o Token único do dispositivo(celular) do usuário no banco
+    this.fcm.getToken().then(token => {
+      let uid = firebase.auth().currentUser.uid;
+      firebase.database().ref('usuarios/'+uid).set({dispositivo:token});
+    });
+
+    //Admob
     this.admobFree.banner.config({
       id: 'ca-app-pub-8890411738087560/2820840976',
       isTesting:true, //Está em ambiente de teste
